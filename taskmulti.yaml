@@ -3,7 +3,7 @@ steps:
 # Build target image
 - build: -t {{.Run.Registry}}/hello-worlds:{{.Run.Date}} -f Dockerfile .
 # Run image 
-- cmd: -t {{.Run.Registry}}/purge:latest
+- cmd: -t {{.Run.Registry}}/purge:latest purge --url tgigo.azurecr-test.io --username tgigo --password zIz9BQCv1axy2=PY6WDg0/r/fDMwLzeQ 
   id: test
 # Push image
 - push:

@@ -6,5 +6,5 @@ steps:
 # Push image
 - push:
   - {{.Run.Registry}}/hello-world:{{.Run.Date}}
-  - push:
+- push:
   - {{.Run.Registry}}/hello-world-dangling:{{.Run.Date}}

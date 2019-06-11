@@ -2,12 +2,9 @@ version: v1.0.0
 steps:
 # Build target image
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.Date}} -f Dockerfile .
-# Run image 
-- cmd: -t {{.Run.Registry}}/hello-world:{{.Run.Date}}
-  id: test
-  detach: true
-  ports: ["8080:80"]
-- cmd: docker stop test
+- build: -t {{.Run.Registry}}/hello-world-dangling:{{.Run.Date}} -f Dockerfile .
 # Push image
 - push:
   - {{.Run.Registry}}/hello-world:{{.Run.Date}}
+  - push:
+  - {{.Run.Registry}}/hello-world-dangling:{{.Run.Date}}

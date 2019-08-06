@@ -1,16 +1,16 @@
 version: v1.0.0
 steps:
 # Build target image
-- build: -t {{.Run.Registry}}/hello-world:a{{.Run.Date}} -f Dockerfile .
-- build: -t {{.Run.Registry}}/hello-world:b{{.Run.Date}} -f Dockerfile .
-- build: -t {{.Run.Registry}}/hello-world:c{{.Run.Date}} -f Dockerfile .
-- build: -t {{.Run.Registry}}/hello-world-dangling:{{.Run.Date}} -f Dockerfile .
+- build: -t {{.Run.Registry}}/devimage1:a{{.Run.Date}} -f Dockerfile .
+- build: -t {{.Run.Registry}}/devimage1:b{{.Run.Date}} -f Dockerfile .
+- build: -t {{.Run.Registry}}/devimage1:c{{.Run.Date}} -f Dockerfile .
+- build: -t {{.Run.Registry}}/devimage2:d{{.Run.Date}} -f Dockerfile .
 # Push image
 - push:
-  - {{.Run.Registry}}/hello-world:a{{.Run.Date}}
+  - {{.Run.Registry}}/devimage1:a{{.Run.Date}}
 - push:
-  - {{.Run.Registry}}/hello-world-dangling:{{.Run.Date}}
+  - {{.Run.Registry}}/devimage2:d{{.Run.Date}}
 - push:
-  - {{.Run.Registry}}/hello-world:b{{.Run.Date}}
+  - {{.Run.Registry}}/devimage1:b{{.Run.Date}}
 - push:
-  - {{.Run.Registry}}/hello-world:c{{.Run.Date}}
+  - {{.Run.Registry}}/devimage1:c{{.Run.Date}}

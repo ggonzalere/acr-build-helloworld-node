@@ -1,0 +1,13 @@
+version: v1.0.0
+steps:
+# Build target image
+- build: -t {{.Run.Registry}}/dotnetdaily:{{.Run.Date}} -f DockerfileCoreLinux .
+# Push image
+- push:
+  - {{.Run.Registry}}/devimage1:a{{.Run.Date}}
+- push:
+  - {{.Run.Registry}}/devimage2:d{{.Run.Date}}
+- push:
+  - {{.Run.Registry}}/devimage1:b{{.Run.Date}}
+- push:
+  - {{.Run.Registry}}/devimage1:c{{.Run.Date}}

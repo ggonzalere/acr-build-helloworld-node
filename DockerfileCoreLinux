@@ -1,0 +1,2 @@
+FROM mcr.microsoft.com/dotnet/core-nightly/aspnet:2.2
+COPY . .
